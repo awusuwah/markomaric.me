@@ -30,7 +30,7 @@
               <input
                 type="password"
                 id="password"
-                placeholder="************"
+                placeholder="••••••••••••"
                 class="w-full mt-1 bg-gray-200 border-2 border-gray-200 rounded-lg dark:border-white dark:bg-white"
                 :class="{ 'border-red-500 placeholder-red-300': !isPasswordValid }"
                 v-model="password"
