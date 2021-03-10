@@ -9,12 +9,14 @@
         <section class="mt-8">
           <div class="w-4/5 mx-auto">
             <div class="mb-5">
-              <label for="email" class="font-semibold text-white" :class="{ 'text-red-500': !isEmailValid }">Email Address</label>
+              <label for="email" class="font-semibold text-black dark:text-white" :class="{ 'text-red-500': !isEmailValid }"
+                >Email Address</label
+              >
               <input
                 type="email"
                 id="email"
                 placeholder="marques@brownlee.com"
-                class="w-full mt-1 border-2 border-white rounded-lg"
+                class="w-full mt-1 bg-gray-200 border-2 border-gray-200 rounded-lg dark:bg-white dark:border-white"
                 :class="{ 'border-red-500 placeholder-red-300': !isEmailValid }"
                 v-model="email"
                 @keydown="isEmailValid = true"
@@ -22,12 +24,14 @@
             </div>
 
             <div class="mb-5">
-              <label for="password" class="font-semibold text-white" :class="{ 'text-red-500': !isEmailValid }">Password</label>
+              <label for="password" class="font-semibold text-black dark:text-white" :class="{ 'text-red-500': !isEmailValid }"
+                >Password</label
+              >
               <input
                 type="password"
                 id="password"
-                placeholder="************"
-                class="w-full mt-1 border-2 border-white rounded-lg"
+                placeholder="••••••••••••"
+                class="w-full mt-1 bg-gray-200 border-2 border-gray-200 rounded-lg dark:bg-white dark:border-white"
                 :class="{ 'border-red-500 placeholder-red-300': !isPasswordValid }"
                 v-model="password"
                 @keydown="isPasswordValid = true"
@@ -35,12 +39,12 @@
             </div>
 
             <div class="mb-5">
-              <label for="verify-password" class="font-semibold text-white">Verify Password</label>
+              <label for="verify-password" class="font-semibold text-black dark:text-white">Verify Password</label>
               <input
                 type="password"
                 id="verify-password"
-                placeholder="************"
-                class="w-full mt-1 border-2 border-white rounded-lg"
+                placeholder="••••••••••••"
+                class="w-full mt-1 bg-gray-200 border-2 border-gray-200 rounded-lg dark:bg-white dark:border-white"
                 :class="{ 'border-red-500 placeholder-red-300': !isVerifyPasswordValid }"
                 v-model="verifyPassword"
                 @keydown="isVerifyPasswordValid = true"

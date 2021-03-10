@@ -9,12 +9,14 @@
         <section class="mt-8">
           <div class="w-4/5 mx-auto">
             <div class="mb-5">
-              <label for="email" class="font-semibold text-white" :class="{ 'text-red-500': !isEmailValid }">Email Address</label>
+              <label for="email" class="font-semibold text-black dark:text-white" :class="{ 'text-red-500': !isEmailValid }"
+                >Email Address</label
+              >
               <input
                 type="email"
                 id="email"
                 placeholder="marques@brownlee.com"
-                class="w-full mt-1 border-2 border-white rounded-lg"
+                class="w-full mt-1 bg-gray-200 border-2 border-gray-200 rounded-lg dark:border-white dark:bg-white"
                 :class="{ 'border-red-500 placeholder-red-300': !isEmailValid }"
                 v-model="email"
                 @keydown="isEmailValid = true"
@@ -22,14 +24,14 @@
             </div>
 
             <div class="mb-5">
-              <label for="password" class="font-semibold text-white" :class="{ 'text-red-500': !isPasswordValid }"
+              <label for="password" class="font-semibold text-black dark:text-white" :class="{ 'text-red-500': !isPasswordValid }"
                 >Password</label
               >
               <input
                 type="password"
                 id="password"
                 placeholder="************"
-                class="w-full mt-1 border-2 border-white rounded-lg"
+                class="w-full mt-1 bg-gray-200 border-2 border-gray-200 rounded-lg dark:border-white dark:bg-white"
                 :class="{ 'border-red-500 placeholder-red-300': !isPasswordValid }"
                 v-model="password"
                 @keydown="isPasswordValid = true"
