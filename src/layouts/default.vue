@@ -3,6 +3,8 @@
     <navigation />
 
     <Nuxt />
+
+    <Footer />
   </div>
 </template>
 
@@ -10,7 +12,7 @@
 export default {
   head: {
     bodyAttrs: {
-      class: 'bg-gradient-to-r from-red-700 to-yellow-500 dark:from-indigo-600 dark:to-blue-800 debug-screens',
+      class: 'bg-green-700 dark:bg-blue-400 debug-screens',
     },
   },
 }
