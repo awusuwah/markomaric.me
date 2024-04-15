@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
+import type { StoryObj } from "@storybook/vue3";
 
 import Button from "../button/Button.vue";
 import Tearsheet from "./Tearsheet.vue";
 
-const meta: any = {
+const meta = {
   title: "Components/Tearsheet",
   component: Tearsheet,
   tags: ["autodocs"],
@@ -32,7 +32,7 @@ const meta: any = {
     title: "Tearsheet",
     noCloseWarning: false,
   },
-} satisfies Meta<typeof meta>;
+};
 export default meta;
 
 type Story = StoryObj<typeof meta>;

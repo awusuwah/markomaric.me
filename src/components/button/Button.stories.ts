@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/vue3";
+import type { StoryObj } from "@storybook/vue3";
 import Button from "./Button.vue";
 
-const meta: any = {
+const meta = {
   title: "Components/Button",
   component: Button,
   tags: ["autodocs"],
@@ -27,7 +27,7 @@ const meta: any = {
     state: "idle",
     noShake: false,
   },
-} satisfies Meta<typeof meta>;
+};
 export default meta;
 
 type Story = StoryObj<typeof meta>;
