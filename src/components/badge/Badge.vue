@@ -20,14 +20,35 @@ const classes = computed(() =>
   cn({
     "flex items-center gap-2 max-w-fit rounded-md px-3 transition-colors": true,
 
-    // Primary variant
+    // Variants: Tailwind colors
+    "bg-slate-500 text-white": props.variant === "slate",
+    "bg-gray-500 text-white": props.variant === "gray",
+    "bg-zinc-500 text-white": props.variant === "zinc",
+    "bg-neutral-500 text-white": props.variant === "neutral",
+    "bg-stone-500 text-white": props.variant === "stone",
+    "bg-red-500 text-white": props.variant === "red",
+    "bg-orange-500 text-white": props.variant === "orange",
+    "bg-amber-500 text-white": props.variant === "amber",
+    "bg-yellow-500 text-white": props.variant === "yellow",
+    "bg-lime-500 text-white": props.variant === "lime",
+    "bg-green-500 text-white": props.variant === "green",
+    "bg-emerald-500 text-white": props.variant === "emerald",
+    "bg-teal-500 text-white": props.variant === "teal",
+    "bg-cyan-500 text-white": props.variant === "cyan",
+    "bg-sky-500 text-white": props.variant === "sky",
+    "bg-blue-500 text-white": props.variant === "blue",
+    "bg-indigo-500 text-white": props.variant === "indigo",
+    "bg-violet-500 text-white": props.variant === "violet",
+    "bg-purple-500 text-white": props.variant === "purple",
+    "bg-fuchsia-500 text-white": props.variant === "fuchsia",
+    "bg-pink-500 text-white": props.variant === "pink",
+    "bg-rose-500 text-white": props.variant === "rose",
+    "bg-white text-black": props.variant === "white",
+    "bg-black text-white": props.variant === "black",
+
+    // Variants: Custom colors
     "bg-pri text-pri-contrast": props.variant === "primary",
-
-    // Secondary variant
     "bg-sec text-sec-contrast": props.variant === "secondary",
-
-    // Neutral variant
-    "bg-gray-400 text-white": props.variant === "neutral",
   }),
 );
 
@@ -35,7 +56,7 @@ type BadgeProps = {
   /**
    * The color variant the button will have.
    */
-  variant?: "primary" | "secondary" | "neutral";
+  variant?: TailwindColors | CustomColors;
 
   /**
    * The text to display in the badge.

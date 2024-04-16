@@ -1,4 +1,5 @@
 import type { StoryObj } from "@storybook/vue3";
+import Button from "../button/Button.vue";
 import Number from "./Number.vue";
 
 const meta = {
@@ -25,12 +26,19 @@ const meta = {
     max: {
       control: "number",
     },
+    step: {
+      control: "number",
+    },
+    id: {
+      control: "text",
+    },
   },
   args: {
     label: "Pax",
     state: "idle",
     modelValue: 0,
     errorMessage: "Pax is required",
+    id: "pax",
   },
 };
 
@@ -46,6 +54,7 @@ export const Default: Story = {
     modelValue: 0,
     min: 0,
     max: 10,
+    step: 4,
   },
   render: (args) => ({
     components: { Number },
@@ -88,4 +97,35 @@ export const Error: Story = {
   args: {
     state: "error",
   },
+};
+
+/**
+ * The number input with a button next to it.
+ */
+export const WithButton: Story = {
+  args: {
+    modelValue: 0,
+    min: 0,
+    max: 100,
+    step: 1,
+  },
+  render: (args) => ({
+    components: { Button, Number },
+    setup() {
+      return { args };
+    },
+    data() {
+      return {
+        pax: args.modelValue ?? 0,
+      };
+    },
+    template: `
+      <div class="flex gap-2">
+        <Number v-bind="args" v-model="pax" />
+        <div class="flex items-end">
+          <Button variant="primary" label="Submit Pax" />
+        </div>
+      </div>
+    `,
+  }),
 };

@@ -4,10 +4,6 @@ import { CheckIcon, XCircleIcon } from "@heroicons/vue/24/outline";
 
 import { cn } from "../../utils/classes";
 
-// TODO: Make sure that incrementing and decrement with arrow keys makes use of the step prop.
-// TODO: Make sure that the id prop can either be passed on or be uniquely generated.
-// TODO: Make sure that the number input is the same height as a regular button.
-
 defineOptions({
   inheritAttrs: false,
 });
@@ -48,11 +44,25 @@ const handleInput = (event: Event): void => {
 };
 
 /**
+ * Handle when the user presses the up or down arrow keys. This will increment or decrement
+ * the value of the number input by the step prop.
+ */
+const handleArrowKeys = (event: KeyboardEvent): void => {
+  event.preventDefault();
+
+  if (event.key === "ArrowUp") {
+    increment();
+  } else if (event.key === "ArrowDown") {
+    decrement();
+  }
+};
+
+/**
  * The classes which are applied wrapper element.
  */
 const wrapperClasses = computed(() =>
   cn({
-    "flex items-center relative pl-2": true,
+    "flex items-center relative pl-3": true,
     "w-full rounded border": true,
 
     // Focus styles
@@ -142,6 +152,12 @@ type NumberProps = {
    * The amount by which the value of the number input should be incremented or decremented.
    */
   step?: number;
+
+  /**
+   * The unique identifier of the number input. This is mostly used to connect the label with the
+   * number input field.
+   */
+  id?: string;
 };
 
 type NumberEmits = {
@@ -153,18 +169,19 @@ type NumberEmits = {
 </script>
 
 <template>
-  <div class="flex flex-col">
-    <label v-if="label" :for="'id'" :class="labelClasses">{{ label }}</label>
+  <div class="flex flex-col flex-1">
+    <label v-if="label" :for="id" :class="labelClasses">{{ label }}</label>
     <div v-if="state !== 'loading'" :class="wrapperClasses">
       <input
         v-bind="$attrs"
-        :id="'id'"
+        :id="id"
         class="bg-transparent w-full border-none focus:ring-0 focus:outline-none"
         type="number"
         :value="modelValue"
         :min="min"
         :max="max"
         @input="handleInput"
+        @keydown="handleArrowKeys"
       />
       <div :class="buttonWrapperClasses">
         <button :class="buttonClasses" aria-label="Increment" tabindex="-1" @click="increment">+</button>
@@ -174,7 +191,10 @@ type NumberEmits = {
       <CheckIcon v-if="state === 'success'" class="absolute right-9 w-7 h-7 text-emerald-600" />
       <XCircleIcon v-if="state === 'error'" class="absolute right-9 w-7 h-7 text-red-600" />
     </div>
-    <div v-else class="animate-pulse bg-gray-400 w-full h-10 rounded"></div>
+    <div v-else class="animate-pulse bg-gray-400 w-full h-[42px] rounded"></div>
+    <span v-if="state === 'error' && errorMessage" class="text-xs text-red-600">
+      {{ errorMessage }}
+    </span>
   </div>
 </template>
 

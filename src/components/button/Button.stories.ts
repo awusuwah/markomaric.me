@@ -8,7 +8,34 @@ const meta = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["primary", "secondary", "neutral"],
+      options: [
+        "primary",
+        "secondary",
+        "slate",
+        "gray",
+        "zinc",
+        "neutral",
+        "stone",
+        "red",
+        "orange",
+        "amber",
+        "yellow",
+        "lime",
+        "green",
+        "emerald",
+        "teal",
+        "cyan",
+        "sky",
+        "blue",
+        "indigo",
+        "violet",
+        "purple",
+        "fuchsia",
+        "pink",
+        "rose",
+        "white",
+        "black",
+      ],
     },
     label: {
       control: "text",
@@ -75,7 +102,7 @@ export const Neutral: Story = {
     variant: "neutral",
     label: "Button",
     state: "idle",
-    noShake: true,
+    noShake: false,
   },
 };
 
@@ -91,7 +118,7 @@ export const LoadingExample: Story = {
     variant: "primary",
     label: "Click me",
     state: "idle",
-    noShake: true,
+    noShake: false,
   },
   render: (args) => ({
     components: { Button },
