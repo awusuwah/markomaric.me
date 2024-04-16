@@ -30,7 +30,7 @@ const wrapperClasses = computed(() =>
 
     // State variants
     "bg-white border-gray-300 text-gray-800": props.state === "idle",
-    "bg-emerald-600/10 broder-emerald-600 text-emerald-600": props.state === "success",
+    "bg-emerald-600/10 border-emerald-600 text-emerald-600": props.state === "success",
     "bg-red-600/10 border-red-600 text-red-600": props.state === "error",
   }),
 );
