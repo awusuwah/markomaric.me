@@ -1,0 +1,7 @@
+{
+	"printWidth": 160,
+	"htmlWhitespaceSensitivity": "ignore",
+
+	"tailwindStylesheet": "./app/assets/main.css",
+	"plugins": ["prettier-plugin-tailwindcss"]
+}

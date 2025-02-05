@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans", sans-serif;
+
+  --color-pri: oklch(59.57% 0.1855 11.05);
+  --color-pri-hover: oklch(59.57% 0.1855 11.05 / 0.8);
+  --color-pri-active: oklch(59.57% 0.1855 11.05 / 0.6);
+  --color-pri-contrast: oklch(0% 0% 100%);
+
+  --color-sec: oklch(38.06% 0.09 291.77);
+  --color-sec-hover: oklch(38.06% 0.09 291.77 / 0.8);
+  --color-sec-active: oklch(38.06% 0.09 291.77 / 0.6);
+  --color-sec-contrast: oklch(0% 0% 100%);
+}
+
+h1 {
+  @apply text-4xl font-bold;
+}
+
+h2 {
+  @apply text-3xl font-bold;
+}
+
+h3 {
+  @apply text-2xl font-bold;
+}
+
+h4 {
+  @apply text-xl font-bold;
+}
+
+h5 {
+  @apply text-lg font-bold;
+}
+
+h6 {
+  @apply text-base font-bold;
+}
