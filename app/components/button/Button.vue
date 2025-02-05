@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import Icon from "@/components/icon/Icon.vue";
+import type { ButtonProps } from "@/@types/button.d.ts";
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   label: undefined,
+  icon: undefined,
   variant: "primary",
   type: "button",
   size: "md",
@@ -38,23 +40,21 @@ const buttonClasses = computed(() => ({
 
   "bg-sec text-sec-contrast": props.variant === "secondary",
   "hover:bg-sec-hover active:bg-sec-active focus:ring-sec": props.variant === "secondary" && !props.disabled,
-}));
 
-interface ButtonProps {
-  label?: string | number;
-  variant?: "primary" | "secondary";
-  type?: "button" | "submit" | "reset";
-  size?: "sm" | "md" | "lg";
-  prefixIcon?: string;
-  suffixIcon?: string;
-  disabled?: boolean;
-  fullWidth?: boolean;
-}
+  "bg-emerald-500 text-white": props.variant === "success",
+  "hover:bg-emerald-600 active:bg-emerald-700 focus:ring-emerald-500": props.variant === "success" && !props.disabled,
+
+  "bg-red-500 text-white": props.variant === "danger",
+  "hover:bg-red-600 active:bg-red-700 focus:ring-red-500": props.variant === "danger" && !props.disabled,
+
+  // Click effect
+  "active:scale-[98%]": true,
+}));
 
 interface ButtonSlots {
   prefix?: { icon?: string };
   suffix?: { icon?: string };
-  default?: { label: string | number };
+  default?: { label?: string | number; icon?: string };
 }
 </script>
 
@@ -64,8 +64,9 @@ interface ButtonSlots {
       <Icon v-if="prefixIcon" :icon="prefixIcon" />
     </slot>
 
-    <slot name="default" :label="label">
-      <span>{{ label }}</span>
+    <slot name="default" :label="label" :icon="icon">
+      <span v-if="label">{{ label }}</span>
+      <Icon v-if="icon" :icon="icon" />
     </slot>
 
     <slot name="suffix" :icon="suffixIcon">
