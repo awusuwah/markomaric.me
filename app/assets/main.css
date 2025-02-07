@@ -4,15 +4,74 @@
 @theme {
   --font-sans: "Noto Sans", sans-serif;
 
+  /* Primary */
   --color-pri: oklch(59.57% 0.1855 11.05);
   --color-pri-hover: oklch(59.57% 0.1855 11.05 / 0.8);
   --color-pri-active: oklch(59.57% 0.1855 11.05 / 0.6);
   --color-pri-contrast: oklch(0% 0% 100%);
+  --color-pri-disabled: oklch(59.57% 0.1855 11.05 / 0.5);
 
+  /* Secondary */
   --color-sec: oklch(38.06% 0.09 291.77);
   --color-sec-hover: oklch(38.06% 0.09 291.77 / 0.8);
   --color-sec-active: oklch(38.06% 0.09 291.77 / 0.6);
   --color-sec-contrast: oklch(0% 0% 100%);
+  --color-sec-disabled: oklch(38.06% 0.09 291.77 / 0.5);
+
+  /* Accent */
+  --color-acc: oklch(60% 0.17 210);
+  --color-acc-hover: oklch(60% 0.17 210 / 0.8);
+  --color-acc-active: oklch(60% 0.17 210 / 0.6);
+  --color-acc-contrast: oklch(100% 0 0);
+  --color-acc-disabled: oklch(60% 0.17 210 / 0.5);
+
+  /* Success */
+  --color-suc: oklch(65% 0.15 145);
+  --color-suc-hover: oklch(65% 0.15 145 / 0.8);
+  --color-suc-active: oklch(65% 0.15 145 / 0.6);
+  --color-suc-contrast: oklch(100% 0 0);
+  --color-suc-disabled: oklch(65% 0.15 145 / 0.5);
+  --color-suc-light: oklch(65% 0.15 145 / 0.15);
+  --color-suc-light-hover: oklch(65% 0.15 145 / 0.25);
+  --color-suc-light-active: oklch(65% 0.15 145 / 0.35);
+  --color-suc-light-contrast: oklch(65% 0.15 145);
+  --color-suc-light-disabled: oklch(65% 0.15 145 / 0.1);
+
+  /* Danger */
+  --color-dng: oklch(65% 0.2 25);
+  --color-dng-hover: oklch(65% 0.2 25 / 0.8);
+  --color-dng-active: oklch(65% 0.2 25 / 0.6);
+  --color-dng-contrast: oklch(100% 0 0);
+  --color-dng-disabled: oklch(65% 0.2 25 / 0.5);
+  --color-dng-light: oklch(65% 0.2 25 / 0.15);
+  --color-dng-light-hover: oklch(65% 0.2 25 / 0.25);
+  --color-dng-light-active: oklch(65% 0.2 25 / 0.35);
+  --color-dng-light-contrast: oklch(65% 0.2 25);
+  --color-dng-light-disabled: oklch(65% 0.2 25 / 0.1);
+
+  /* Warning */
+  --color-war: oklch(80% 0.15 85);
+  --color-war-hover: oklch(80% 0.15 85 / 0.8);
+  --color-war-active: oklch(80% 0.15 85 / 0.6);
+  --color-war-contrast: oklch(0% 0 0);
+  --color-war-disabled: oklch(80% 0.15 85 / 0.5);
+  --color-war-light: oklch(80% 0.15 85 / 0.15);
+  --color-war-light-hover: oklch(80% 0.15 85 / 0.25);
+  --color-war-light-active: oklch(80% 0.15 85 / 0.35);
+  --color-war-light-contrast: oklch(80% 0.15 85);
+  --color-war-light-disabled: oklch(80% 0.15 85 / 0.1);
+
+  /* Info */
+  --color-inf: oklch(65% 0.15 230);
+  --color-inf-hover: oklch(65% 0.15 230 / 0.8);
+  --color-inf-active: oklch(65% 0.15 230 / 0.6);
+  --color-inf-contrast: oklch(100% 0 0);
+  --color-inf-disabled: oklch(65% 0.15 230 / 0.5);
+  --color-inf-light: oklch(65% 0.15 230 / 0.15);
+  --color-inf-light-hover: oklch(65% 0.15 230 / 0.25);
+  --color-inf-light-active: oklch(65% 0.15 230 / 0.35);
+  --color-inf-light-contrast: oklch(65% 0.15 230);
+  --color-inf-light-disabled: oklch(65% 0.15 230 / 0.1);
 }
 
 h1 {
