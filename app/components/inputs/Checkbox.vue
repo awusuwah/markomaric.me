@@ -25,11 +25,11 @@ const checkboxClasses = computed(() => ({
   "grid w-5 h-5 border rounded place-content-center": true,
 
   // Variants
-  "bg-transparent border-gray-600": props.variant === "default",
-  "border-suc": props.variant === "success",
-  "border-dng": props.variant === "danger",
-  "border-war": props.variant === "warning",
-  "border-inf": props.variant === "info",
+  "border-gray-600 peer-checked:border-transparent": props.variant === "default",
+  "border-suc peer-checked:border-transparent": props.variant === "success",
+  "border-dng peer-checked:border-transparent": props.variant === "danger",
+  "border-war peer-checked:border-transparent": props.variant === "warning",
+  "border-inf peer-checked:border-transparent": props.variant === "info",
 
   // Focus
   "peer-focus:ring-2 peer-focus:ring-acc peer-focus:ring-offset-2 peer-focus:ring-offset-gray-900": true,
