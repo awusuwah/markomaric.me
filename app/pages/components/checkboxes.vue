@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Card from "@/components/card/Card.vue";
-import Checkbox from "@/components/inputs/Checkbox.vue";
+import Checkbox from "@/components/inputs/checkbox/Checkbox.vue";
 
 const checked = ref(true);
 </script>
@@ -40,8 +40,6 @@ const checked = ref(true);
       </div>
     </Card>
 
-    <Card title="Controls" class="space-y-4">
-      <p>When hovering a not disabled checkbox, the border color remains the main variant color, but it should be adjusted to the variants hover color.</p>
-    </Card>
+    <Card title="Controls" class="space-y-4"></Card>
   </div>
 </template>

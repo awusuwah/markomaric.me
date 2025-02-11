@@ -2,7 +2,9 @@
 const components = [
   { name: "Buttons", path: "/components/buttons" },
   { name: "Checkboxes", path: "/components/checkboxes" },
+  { name: "Toggles", path: "/components/toggles" },
   { name: "Radiobuttons", path: "/components/radiobuttons" },
+  { name: "Icon", path: "/components/icon" },
 ];
 </script>
 

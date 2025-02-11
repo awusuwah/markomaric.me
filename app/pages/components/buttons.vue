@@ -1,16 +1,6 @@
 <script setup lang="ts">
 import Button from "@/components/button/Button.vue";
 import Card from "@/components/card/Card.vue";
-
-const propLabel = ref("Button");
-const propIcon = ref("firefox-browser-line");
-const propVariant = ref("primary");
-const propType = ref("button");
-const propSize = ref("md");
-const propPrefixIcon = ref("firefox-browser-line");
-const propSuffixIcon = ref("firefox-browser-line");
-const propDisabled = ref(false);
-const propFullWidth = ref(false);
 </script>
 
 <template>
@@ -39,8 +29,6 @@ const propFullWidth = ref(false);
       </div>
     </Card>
 
-    <Card title="Controls" class="space-y-4">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
-    </Card>
+    <Card title="Controls" class="space-y-4"></Card>
   </div>
 </template>

@@ -79,14 +79,16 @@ const labelClasses = computed(() => ({
     <input type="checkbox" :checked="modelValue" :disabled="disabled" class="peer sr-only" @change="emit('update:modelValue', ($event.target as HTMLInputElement).checked)" />
 
     <!-- Custom checkbox -->
-    <div :class="checkboxClasses"></div>
-    <svg :class="checkmarkClasses" viewBox="0 0 16 16" fill="none">
-      <path
-        d="M12.4409 3.63243L6.66648 9.4075L3.72005 6.46108L3.36649 6.10752L3.01294 6.46108L2.07027 7.40374L1.71672 7.7573L2.07027 8.11085L6.31294 12.3535L6.66649 12.7071L7.02005 12.3535L14.0914 5.28218L14.4451 4.9285L14.0913 4.57495L13.1479 3.63228L12.7943 3.27896L12.4409 3.63243Z"
-        fill="currentColor"
-        stroke="currentColor"
-      />
-    </svg>
+    <slot>
+      <div :class="checkboxClasses"></div>
+      <svg :class="checkmarkClasses" viewBox="0 0 16 16" fill="none">
+        <path
+          d="M12.4409 3.63243L6.66648 9.4075L3.72005 6.46108L3.36649 6.10752L3.01294 6.46108L2.07027 7.40374L1.71672 7.7573L2.07027 8.11085L6.31294 12.3535L6.66649 12.7071L7.02005 12.3535L14.0914 5.28218L14.4451 4.9285L14.0913 4.57495L13.1479 3.63228L12.7943 3.27896L12.4409 3.63243Z"
+          fill="currentColor"
+          stroke="currentColor"
+        />
+      </svg>
+    </slot>
 
     <!-- Label -->
     <span v-if="label" :class="labelClasses">{{ label }}</span>
