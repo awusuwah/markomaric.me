@@ -25,4 +25,5 @@ COPY --from=builder /app/.output .output
 EXPOSE 3000
 
 # Launch the application
-CMD ["bun", ".output/server/index.mjs"]
+ENTRYPOINT ["bun"]
+CMD [".output/server/index.mjs"]
