@@ -5,6 +5,7 @@ const components = [
   { name: "Toggles", path: "/components/toggles" },
   { name: "Radiobuttons", path: "/components/radiobuttons" },
   { name: "Icon", path: "/components/icon" },
+  { name: "Text", path: "/components/text" },
 ];
 </script>
 
