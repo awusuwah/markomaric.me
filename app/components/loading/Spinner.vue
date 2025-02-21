@@ -11,21 +11,35 @@ const props = withDefaults(defineProps<SpinnerProps>(), {
 /**
  * The classes which are applied to the spinner element.
  */
-const spinnerClasses = computed(() => ({
-  // Sizes
-  "h-3 w-3": props.size === "xs",
-  "h-4 w-4": props.size === "sm",
-  "h-6 w-6": props.size === "md",
-  "h-8 w-8": props.size === "lg",
-  "h-10 w-10": props.size === "xl",
+const spinnerClasses = computed(
+  (): Record<string, boolean> => ({
+    // Sizes
+    "h-3 w-3": props.size === "xs",
+    "h-4 w-4": props.size === "sm",
+    "h-6 w-6": props.size === "md",
+    "h-8 w-8": props.size === "lg",
+    "h-10 w-10": props.size === "xl",
 
-  // Variants
-  "text-pri": props.variant === "primary" && !props.contrast,
-  "text-pri-contrast": props.variant === "primary" && props.contrast,
+    // Variants
+    "text-pri": props.variant === "primary" && !props.contrast,
+    "text-pri-contrast": props.variant === "primary" && props.contrast,
 
-  "text-sec": props.variant === "secondary" && !props.contrast,
-  "text-sec-contrast": props.variant === "secondary" && props.contrast,
-}));
+    "text-sec": props.variant === "secondary" && !props.contrast,
+    "text-sec-contrast": props.variant === "secondary" && props.contrast,
+
+    "text-suc": props.variant === "success" && !props.contrast,
+    "text-suc-contrast": props.variant === "success" && props.contrast,
+
+    "text-dng": props.variant === "danger" && !props.contrast,
+    "text-dng-contrast": props.variant === "danger" && props.contrast,
+
+    "text-war": props.variant === "warning" && !props.contrast,
+    "text-war-contrast": props.variant === "warning" && props.contrast,
+
+    "text-inf": props.variant === "info" && !props.contrast,
+    "text-inf-contrast": props.variant === "info" && props.contrast,
+  }),
+);
 </script>
 
 <template>

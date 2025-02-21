@@ -1,11 +1,17 @@
 export interface ButtonProps {
   label?: string | number;
   icon?: string;
-  variant?: "primary" | "secondary" | "success" | "danger";
+  variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
   type?: "button" | "submit" | "reset";
   size?: "sm" | "md" | "lg";
-  prefixIcon?: string;
-  suffixIcon?: string;
+  startIcon?: string;
+  endIcon?: string;
   disabled?: boolean;
   fullWidth?: boolean;
+}
+
+export interface ButtonSlots {
+  start?: { icon?: string };
+  end?: { icon?: string };
+  default?: { label?: string | number; icon?: string };
 }

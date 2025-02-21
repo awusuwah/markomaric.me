@@ -1,77 +1,85 @@
 <script setup lang="ts">
-import type { CheckboxProps, CheckboxEmits } from "@/@types/checkbox.d.ts";
+import type { CheckboxProps, CheckboxEmits, CheckboxSlots } from "@/@types/checkbox.d.ts";
 
+const emit = defineEmits<CheckboxEmits>();
+const slots = defineSlots<CheckboxSlots>();
 const props = withDefaults(defineProps<CheckboxProps>(), {
   label: undefined,
   variant: "default",
   disabled: false,
 });
 
-const emit = defineEmits<CheckboxEmits>();
-
 /**
  * The classes which are applied to the wrapper element.
  */
-const wrapperClasses = computed(() => ({
-  "group relative flex flex-row items-center gap-x-2 w-fit": true,
-  "cursor-pointer": !props.disabled,
-  "cursor-not-allowed opacity-50": props.disabled,
-}));
+const wrapperClasses = computed(
+  (): Record<string, boolean> => ({
+    "group relative flex flex-row items-center gap-x-2 w-fit": true,
+    "cursor-pointer": !props.disabled,
+    "cursor-not-allowed opacity-50": props.disabled,
+  }),
+);
 
 /**
  * The classes which are applied to the custom checkbox element.
  */
-const checkboxClasses = computed(() => ({
-  "grid w-5 h-5 border rounded place-content-center": true,
+const checkboxClasses = computed(
+  (): Record<string, boolean> => ({
+    "grid w-5 h-5 border rounded place-content-center": true,
 
-  // Variants
-  "border-gray-600 peer-checked:border-transparent": props.variant === "default",
-  "border-suc peer-checked:border-transparent": props.variant === "success",
-  "border-dng peer-checked:border-transparent": props.variant === "danger",
-  "border-war peer-checked:border-transparent": props.variant === "warning",
-  "border-inf peer-checked:border-transparent": props.variant === "info",
+    // Variants
+    "border-gray-600 peer-checked:border-transparent": props.variant === "default",
+    "border-suc peer-checked:border-transparent": props.variant === "success",
+    "border-dng peer-checked:border-transparent": props.variant === "danger",
+    "border-war peer-checked:border-transparent": props.variant === "warning",
+    "border-inf peer-checked:border-transparent": props.variant === "info",
 
-  // Focus
-  "peer-focus:ring-2 peer-focus:ring-acc peer-focus:ring-offset-2 peer-focus:ring-offset-gray-900": true,
-}));
+    // Focus
+    "peer-focus:ring-2 peer-focus:ring-acc peer-focus:ring-offset-2 peer-focus:ring-offset-gray-900": true,
+  }),
+);
 
 /**
  * The classes which are applied to the checkmark svg element.
  */
-const checkmarkClasses = computed(() => ({
-  "absolute h-5 w-5 p-0.5 text-transparent rounded transition-all": true,
+const checkmarkClasses = computed(
+  (): Record<string, boolean> => ({
+    "absolute h-5 w-5 p-0.5 text-transparent rounded transition-all": true,
 
-  // Unchecked
-  "bg-transparent": props.variant === "default",
-  "bg-suc-light peer-not-checked:hover:bg-suc-light-hover peer-not-checked:group-hover:bg-suc-light-hover": props.variant === "success",
-  "bg-dng-light peer-not-checked:hover:bg-dng-light-hover peer-not-checked:group-hover:bg-dng-light-hover": props.variant === "danger",
-  "bg-war-light peer-not-checked:hover:bg-war-light-hover peer-not-checked:group-hover:bg-war-light-hover": props.variant === "warning",
-  "bg-inf-light peer-not-checked:hover:bg-inf-light-hover peer-not-checked:group-hover:bg-inf-light-hover": props.variant === "info",
+    // Unchecked
+    "bg-transparent": props.variant === "default",
+    "bg-suc-light peer-not-checked:hover:bg-suc-light-hover peer-not-checked:group-hover:bg-suc-light-hover": props.variant === "success",
+    "bg-dng-light peer-not-checked:hover:bg-dng-light-hover peer-not-checked:group-hover:bg-dng-light-hover": props.variant === "danger",
+    "bg-war-light peer-not-checked:hover:bg-war-light-hover peer-not-checked:group-hover:bg-war-light-hover": props.variant === "warning",
+    "bg-inf-light peer-not-checked:hover:bg-inf-light-hover peer-not-checked:group-hover:bg-inf-light-hover": props.variant === "info",
 
-  // Checked
-  "peer-checked:bg-acc peer-checked:peer-not-disabled:hover:bg-acc-hover peer-checked:peer-not-disabled:group-hover:bg-acc-hover peer-checked:text-acc-contrast": props.variant === "default",
-  "peer-checked:bg-suc peer-checked:peer-not-disabled:hover:bg-suc-hover peer-checked:peer-not-disabled:group-hover:bg-suc-hover peer-checked:text-suc-contrast": props.variant === "success",
-  "peer-checked:bg-dng peer-checked:peer-not-disabled:hover:bg-dng-hover peer-checked:peer-not-disabled:group-hover:bg-dng-hover peer-checked:text-dng-contrast": props.variant === "danger",
-  "peer-checked:bg-war peer-checked:peer-not-disabled:hover:bg-war-hover peer-checked:peer-not-disabled:group-hover:bg-war-hover peer-checked:text-war-contrast": props.variant === "warning",
-  "peer-checked:bg-inf peer-checked:peer-not-disabled:hover:bg-inf-hover peer-checked:peer-not-disabled:group-hover:bg-inf-hover peer-checked:text-inf-contrast": props.variant === "info",
-}));
+    // Checked
+    "peer-checked:bg-acc peer-checked:peer-not-disabled:hover:bg-acc-hover peer-checked:peer-not-disabled:group-hover:bg-acc-hover peer-checked:text-acc-contrast": props.variant === "default",
+    "peer-checked:bg-suc peer-checked:peer-not-disabled:hover:bg-suc-hover peer-checked:peer-not-disabled:group-hover:bg-suc-hover peer-checked:text-suc-contrast": props.variant === "success",
+    "peer-checked:bg-dng peer-checked:peer-not-disabled:hover:bg-dng-hover peer-checked:peer-not-disabled:group-hover:bg-dng-hover peer-checked:text-dng-contrast": props.variant === "danger",
+    "peer-checked:bg-war peer-checked:peer-not-disabled:hover:bg-war-hover peer-checked:peer-not-disabled:group-hover:bg-war-hover peer-checked:text-war-contrast": props.variant === "warning",
+    "peer-checked:bg-inf peer-checked:peer-not-disabled:hover:bg-inf-hover peer-checked:peer-not-disabled:group-hover:bg-inf-hover peer-checked:text-inf-contrast": props.variant === "info",
+  }),
+);
 
 /**
  * The classes which are applied to the label of the checkbox.
  */
-const labelClasses = computed(() => ({
-  "ms-1 text-sm font-medium select-none": true,
+const labelClasses = computed(
+  (): Record<string, boolean> => ({
+    "ms-1 text-sm font-medium select-none": true,
 
-  // Variants
-  "text-txt": props.variant === "default",
-  "text-suc": props.variant === "success",
-  "text-dng": props.variant === "danger",
-  "text-war": props.variant === "warning",
-  "text-inf": props.variant === "info",
+    // Variants
+    "text-txt": props.variant === "default",
+    "text-suc": props.variant === "success",
+    "text-dng": props.variant === "danger",
+    "text-war": props.variant === "warning",
+    "text-inf": props.variant === "info",
 
-  // Disabled
-  italic: props.disabled,
-}));
+    // Disabled
+    italic: props.disabled,
+  }),
+);
 </script>
 
 <template>
@@ -91,6 +99,8 @@ const labelClasses = computed(() => ({
     </slot>
 
     <!-- Label -->
-    <span v-if="label" :class="labelClasses">{{ label }}</span>
+    <slot name="label" :label="label">
+      <span v-if="label" :class="labelClasses">{{ label }}</span>
+    </slot>
   </label>
 </template>

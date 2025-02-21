@@ -1,7 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <div class="flex h-full w-full flex-col gap-y-4"></div>
 </template>

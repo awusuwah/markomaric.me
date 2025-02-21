@@ -9,3 +9,8 @@ export interface RadiobuttonProps {
 export interface RadiobuttonEmits {
   "update:modelValue": [string];
 }
+
+export interface RadiobuttonSlots {
+  label?: { label?: string };
+  default?: {};
+}

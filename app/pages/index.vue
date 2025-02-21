@@ -1,11 +1,13 @@
 <script setup lang="ts">
 const components = [
-  { name: "Buttons", path: "/components/buttons" },
-  { name: "Checkboxes", path: "/components/checkboxes" },
-  { name: "Toggles", path: "/components/toggles" },
-  { name: "Radiobuttons", path: "/components/radiobuttons" },
+  { name: "Button", path: "/components/button" },
+  { name: "Checkbox", path: "/components/checkbox" },
+  { name: "Toggle", path: "/components/toggle" },
+  { name: "Radiobutton", path: "/components/radiobutton" },
   { name: "Icon", path: "/components/icon" },
   { name: "Text", path: "/components/text" },
+  { name: "Datepicker", path: "/components/datepicker" },
+  { name: "Spinner", path: "/components/spinner" },
 ];
 </script>
 

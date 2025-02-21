@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import * as RemixIcons from "@remixicon/vue";
+import type { IconProps } from "@/@types/icon.d.ts";
 
 const props = withDefaults(defineProps<IconProps>(), {
   size: "md",
@@ -23,18 +24,15 @@ const iconComponent = computed(() => {
 /**
  * Determine the size of the icon based on the size prop.
  */
-const iconClasses = computed(() => ({
-  "h-3 w-3": props.size === "xs",
-  "h-4 w-4": props.size === "sm",
-  "h-6 w-6": props.size === "md",
-  "h-8 w-8": props.size === "lg",
-  "h-10 w-10": props.size === "xl",
-}));
-
-interface IconProps {
-  icon: string;
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
-}
+const iconClasses = computed(
+  (): Record<string, boolean> => ({
+    "h-3 w-3": props.size === "xs",
+    "h-4 w-4": props.size === "sm",
+    "h-6 w-6": props.size === "md",
+    "h-8 w-8": props.size === "lg",
+    "h-10 w-10": props.size === "xl",
+  }),
+);
 </script>
 
 <template>

@@ -1,17 +1,15 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<Props>(), {
+import type { CardProps, CardSlots } from "@/@types/card.d.ts";
+
+const slots = defineSlots<CardSlots>();
+withDefaults(defineProps<CardProps>(), {
   as: "section",
 });
-
-type Props = {
-  as?: string;
-  title?: string;
-};
 </script>
 
 <template>
   <component :is="as" class="rounded-md bg-gray-800 p-4 shadow-lg shadow-black/20">
-    <slot name="header">
+    <slot name="header" :title="title">
       <h2 v-if="title">{{ title }}</h2>
     </slot>
 
