@@ -44,7 +44,7 @@ const openPane = computed((): string => showcase.value?.openPane ?? "all");
 </script>
 
 <template>
-  <ComponentShowcase ref="showcase" title="Button" description="Buttons are used to trigger actions in the application.">
+  <ComponentShowcase ref="showcase" title="Button" description="Buttons are used to trigger actions in the application." component="button">
     <section class="flex gap-x-4">
       <Button variant="primary" label="Primary" />
       <Button variant="primary" label="Primary (prefix icon)" start-icon="firefox-browser-line" />
@@ -108,14 +108,14 @@ const openPane = computed((): string => showcase.value?.openPane ?? "all");
     </template>
 
     <template #controls>
-      <Text v-model="buttonLabel" label="Label" :disabled="openPane !== 'single'" />
-      <Text v-model="buttonIcon" label="Icon" :disabled="openPane !== 'single'" />
+      <Text v-model="buttonLabel" label="Label" placeholder="Submit" :disabled="openPane !== 'single'" />
+      <Text v-model="buttonIcon" label="Icon" placeholder="add-line" :disabled="openPane !== 'single'" />
       <RadiobuttonGroup v-model="buttonVariant" :options="buttonVariants" :disabled="openPane !== 'single'" label="Variant" group="button-variant" inline />
       <RadiobuttonGroup v-model="buttonType" :options="buttonTypes" :disabled="openPane !== 'single'" label="Type" group="button-type" inline />
       <RadiobuttonGroup v-model="buttonSize" :options="buttonSizes" :disabled="openPane !== 'single'" label="Size" group="button-size" inline />
       <div class="flex gap-x-2">
-        <Text v-model="buttonStartIcon" label="Start Icon" :disabled="openPane !== 'single'" class="flex-1" />
-        <Text v-model="buttonEndIcon" label="End Icon" :disabled="openPane !== 'single'" class="flex-1" />
+        <Text v-model="buttonStartIcon" label="Start Icon" placeholder="mail-line" :disabled="openPane !== 'single'" class="flex-1" />
+        <Text v-model="buttonEndIcon" label="End Icon" placeholder="main-send-line" :disabled="openPane !== 'single'" class="flex-1" />
       </div>
       <Toggle v-model="buttonDisabled" label="Disabled" :disabled="openPane !== 'single'" />
       <Toggle v-model="buttonFullWidth" label="Full Width" :disabled="openPane !== 'single'" />
