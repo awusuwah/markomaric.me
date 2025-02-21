@@ -6,6 +6,7 @@ const slots = defineSlots<RadiobuttonSlots>();
 const props = withDefaults(defineProps<RadiobuttonProps>(), {
   label: undefined,
   value: undefined,
+  group: undefined,
   variant: "default",
   disabled: false,
 });
@@ -76,7 +77,15 @@ const labelClasses = computed(
 
 <template>
   <label :class="wrapperClasses">
-    <input type="radio" :value="value" :checked="modelValue === value" :disabled="disabled" class="peer sr-only" @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)" />
+    <input
+      type="radio"
+      :value="value"
+      :checked="modelValue === value"
+      :disabled="disabled"
+      :name="group"
+      class="peer sr-only"
+      @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+    />
 
     <!-- Custom radiobutton -->
     <slot>

@@ -6,7 +6,7 @@ const emit = defineEmits<TextEmits>();
 const slots = defineSlots<TextSlots>();
 const props = withDefaults(defineProps<TextProps>(), {
   label: undefined,
-  placeholder: "Placeholder",
+  placeholder: "",
   type: "text",
   variant: "default",
   disabled: false,
