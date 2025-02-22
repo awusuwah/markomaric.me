@@ -6,7 +6,7 @@ const slots = defineSlots<ButtonSlots>();
 const props = withDefaults(defineProps<ButtonProps>(), {
   label: undefined,
   icon: undefined,
-  variant: "primary",
+  variant: "neutral",
   type: "button",
   size: "md",
   startIcon: undefined,
@@ -24,6 +24,7 @@ const buttonClasses = computed(
     "focus:outline-none focus:ring-2 focus:ring-acc focus:ring-offset-2 focus:ring-offset-gray-950": true,
 
     // Variants
+    "bg-gray-700 text-white not-disabled:hover:bg-gray-600 not-disabled:active:bg-gray-500": props.variant === "neutral",
     "bg-pri text-pri-contrast not-disabled:hover:bg-pri-hover not-disabled:active:bg-pri-active": props.variant === "primary",
     "bg-sec text-sec-contrast not-disabled:hover:bg-sec-hover not-disabled:active:bg-sec-active": props.variant === "secondary",
     "bg-suc text-suc-contrast not-disabled:hover:bg-suc-hover not-disabled:active:bg-suc-active": props.variant === "success",

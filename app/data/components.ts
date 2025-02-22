@@ -1,5 +1,6 @@
 export const componentButton = {
   variants: [
+    { label: "Neutral", value: "neutral" },
     { label: "Primary", value: "primary" },
     { label: "Secondary", value: "secondary" },
     { label: "Success", value: "success" },
@@ -36,6 +37,16 @@ export const componentIcon = {
     { label: "Medium", value: "md" },
     { label: "Large", value: "lg" },
     { label: "XLarge", value: "xl" },
+  ],
+};
+
+export const componentModal = {
+  variants: [
+    { label: "Default", value: "default" },
+    { label: "Success", value: "success" },
+    { label: "Danger", value: "danger" },
+    { label: "Warning", value: "warning" },
+    { label: "Info", value: "info" },
   ],
 };
 

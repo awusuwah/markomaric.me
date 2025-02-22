@@ -1,7 +1,7 @@
 export interface ButtonProps {
   label?: string | number;
   icon?: string;
-  variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
+  variant?: "neutral" | "primary" | "secondary" | "success" | "danger" | "warning" | "info";
   type?: "button" | "submit" | "reset";
   size?: "sm" | "md" | "lg";
   startIcon?: string;

@@ -10,7 +10,7 @@ import { componentButton } from "@/data/components";
 
 const buttonLabel = ref<string>("Button");
 const buttonIcon = ref<string>("");
-const buttonVariant = ref<"primary" | "secondary" | "success" | "danger" | "warning" | "info">("primary");
+const buttonVariant = ref<"neutral" | "primary" | "secondary" | "success" | "danger" | "warning" | "info">("neutral");
 const buttonType = ref<"button" | "submit" | "reset">("button");
 const buttonSize = ref<"sm" | "md" | "lg">("md");
 const buttonStartIcon = ref<string>("");
@@ -27,6 +27,14 @@ const controlsDisabled = computed((): boolean => {
 
 <template>
   <ComponentShowcase ref="showcase" title="Button" description="Buttons are used to trigger actions in the application." component="button">
+    <section class="flex gap-x-4">
+      <Button variant="neutral" label="Neutral" />
+      <Button variant="neutral" label="Neutral (prefix icon)" start-icon="firefox-browser-line" />
+      <Button variant="neutral" label="Neutral (disabled)" disabled />
+      <Button variant="neutral" icon="firefox-browser-line" />
+      <Button icon="firefox-browser-line" variant="neutral" disabled />
+    </section>
+
     <section class="flex gap-x-4">
       <Button variant="primary" label="Primary" />
       <Button variant="primary" label="Primary (prefix icon)" start-icon="firefox-browser-line" />
