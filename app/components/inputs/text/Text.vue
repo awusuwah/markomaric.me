@@ -10,8 +10,8 @@ const props = withDefaults(defineProps<TextProps>(), {
   type: "text",
   variant: "default",
   disabled: false,
-  prefixIcon: undefined,
-  suffixIcon: undefined,
+  startIcon: undefined,
+  endIcon: undefined,
   readOnly: false,
 });
 
@@ -39,7 +39,7 @@ const inputWrapperClasses = computed(
     "border-inf bg-inf-light": props.variant === "info",
 
     // Disabled
-    "cursor-not-allowed opacity-50": props.disabled,
+    "italic cursor-not-allowed opacity-50": props.disabled,
 
     "focus-within:ring-2 focus-within:ring-acc focus-within:ring-offset-2 focus-within:ring-offset-gray-900": true,
   }),
@@ -53,7 +53,7 @@ const inputClasses = computed(
     "peer w-full h-full flex-1": true,
 
     // Spacing
-    "px-2": !props.prefixIcon,
+    "px-2": !props.startIcon,
 
     // Prevent focus styles
     "focus:ring-0 focus-visible:outline-none": true,
@@ -78,7 +78,7 @@ const labelClasses = computed(
     "text-inf": props.variant === "info",
 
     // Disabled
-    "cursor-not-allowed": props.disabled,
+    "italic cursor-not-allowed opacity-50": props.disabled,
   }),
 );
 
@@ -120,8 +120,8 @@ const inputEvents = computed(() => ({
     <div :class="inputWrapperClasses">
       <!-- Prefix Icon -->
       <slot name="start">
-        <div v-if="prefixIcon" class="flex aspect-square h-full items-center justify-center">
-          <Icon :icon="prefixIcon" :class="iconClasses" />
+        <div v-if="startIcon" class="flex aspect-square h-full items-center justify-center">
+          <Icon :icon="startIcon" :class="iconClasses" />
         </div>
       </slot>
 
@@ -129,8 +129,8 @@ const inputEvents = computed(() => ({
 
       <!-- Suffix Icon -->
       <slot name="end">
-        <div v-if="suffixIcon" class="flex aspect-square h-full items-center justify-center">
-          <Icon :icon="prefixIcon" :class="iconClasses" />
+        <div v-if="endIcon" class="flex aspect-square h-full items-center justify-center">
+          <Icon :icon="endIcon" :class="iconClasses" />
         </div>
       </slot>
     </div>

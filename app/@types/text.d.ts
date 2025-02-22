@@ -4,8 +4,8 @@ export interface TextProps {
   placeholder?: string;
   type?: "text" | "email" | "password" | "number";
   variant?: "default" | "success" | "danger" | "warning" | "info";
-  prefixIcon?: string;
-  suffixIcon?: string;
+  startIcon?: string;
+  endIcon?: string;
   disabled?: boolean;
   readOnly?: boolean;
 }
