@@ -12,7 +12,9 @@ const navigationItems = [
     items: [
       { label: "Buttons", icon: "puzzle-line", to: "/components/button" },
       { label: "Checkbox", icon: "puzzle-line", to: "/components/checkbox" },
+      { label: "Context Menu", icon: "puzzle-line", to: "/components/context-menu" },
       { label: "Icon", icon: "puzzle-line", to: "/components/icon" },
+      { label: "Menu", icon: "puzzle-line", to: "/components/menu" },
       { label: "Modal", icon: "puzzle-line", to: "/components/modal" },
       { label: "Radiobutton", icon: "puzzle-line", to: "/components/radiobutton" },
       { label: "Spinner", icon: "puzzle-line", to: "/components/spinner" },

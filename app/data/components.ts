@@ -30,6 +30,20 @@ export const componentCheckbox = {
   ],
 };
 
+export const componentContextMenu = {
+  options: [
+    { id: "settings", label: "Settings", icon: "settings-line", disabled: false },
+    { id: "command-palette", label: "Command Palette", icon: "terminal-line", disabled: false },
+    { id: "developer", label: "Developer", icon: "code-line", disabled: true },
+  ],
+  positions: [
+    { label: "Top", value: "top" },
+    { label: "Bottom", value: "bottom" },
+    { label: "Left", value: "left" },
+    { label: "Right", value: "right" },
+  ],
+};
+
 export const componentIcon = {
   sizes: [
     { label: "XSmall", value: "xs" },
@@ -37,6 +51,15 @@ export const componentIcon = {
     { label: "Medium", value: "md" },
     { label: "Large", value: "lg" },
     { label: "XLarge", value: "xl" },
+  ],
+};
+
+export const componentMenu = {
+  positions: [
+    { label: "Top", value: "top" },
+    { label: "Bottom", value: "bottom" },
+    { label: "Left", value: "left" },
+    { label: "Right", value: "right" },
   ],
 };
 

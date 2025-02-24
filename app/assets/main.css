@@ -74,32 +74,38 @@
   --color-inf-light-disabled: oklch(65% 0.15 230 / 0.1);
 }
 
-h1 {
+h1,
+.h1 {
   @apply text-4xl font-bold;
 }
 
-h2 {
+h2,
+.h2 {
   @apply text-3xl font-bold;
 }
 
-h3 {
+h3,
+.h3 {
   @apply text-2xl font-bold;
 }
 
-h4 {
+h4,
+.h4 {
   @apply text-xl font-bold;
 }
 
-h5 {
+h5,
+.h5 {
   @apply text-lg font-bold;
 }
 
-h6 {
+h6,
+.h6 {
   @apply text-base font-bold;
 }
 
 @layer base {
   *:focus {
-    @apply ring-2 ring-acc ring-offset-2 ring-offset-gray-950 outline-none;
+    @apply outline-2 outline-offset-2 outline-acc;
   }
 }
