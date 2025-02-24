@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
 import Text from "@/components/inputs/text/Text.vue";
+import { componentText } from "@/data/components";
 
 // Controls
 import RadiobuttonGroup from "@/components/inputs/radiobutton/RadiobuttonGroup.vue";
 import Toggle from "@/components/inputs/checkbox/Toggle.vue";
-import { componentText } from "@/data/components";
 
+// Control state
 const textModel = ref<string>("");
 const textLabel = ref<string>("Text");
 const textPlaceholder = ref<string>("Enter text");
@@ -18,10 +19,6 @@ const textDisabled = ref<boolean>(false);
 const textReadonly = ref<boolean>(false);
 
 const showcase = ref<InstanceType<typeof ComponentShowcase>>();
-const controlsDisabled = computed((): boolean => {
-  const pane = showcase.value?.openPane ?? "all";
-  return pane !== "single";
-});
 </script>
 
 <template>
@@ -75,17 +72,17 @@ const controlsDisabled = computed((): boolean => {
       />
     </template>
 
-    <template #controls>
-      <Text v-model="textLabel" label="Label" :disabled="controlsDisabled" />
-      <Text v-model="textPlaceholder" label="Placeholder" :disabled="controlsDisabled" />
+    <template #controls="{ disabled }">
+      <Text v-model="textLabel" label="Label" :disabled="disabled" />
+      <Text v-model="textPlaceholder" label="Placeholder" :disabled="disabled" />
       <div class="flex gap-x-2">
-        <Text v-model="textStartIcon" label="Start Icon" :disabled="controlsDisabled" class="flex-1" />
-        <Text v-model="textEndIcon" label="End Icon" :disabled="controlsDisabled" class="flex-1" />
+        <Text v-model="textStartIcon" label="Start Icon" :disabled="disabled" class="flex-1" />
+        <Text v-model="textEndIcon" label="End Icon" :disabled="disabled" class="flex-1" />
       </div>
-      <RadiobuttonGroup v-model="textType" label="Type" :options="componentText.types" :disabled="controlsDisabled" group="text-type" inline />
-      <RadiobuttonGroup v-model="textVariant" label="Variant" :options="componentText.variants" :disabled="controlsDisabled" group="text-variant" inline />
-      <Toggle v-model="textDisabled" label="Disabled" :disabled="controlsDisabled" />
-      <Toggle v-model="textReadonly" label="Readonly" :disabled="controlsDisabled" />
+      <RadiobuttonGroup v-model="textType" label="Type" :options="componentText.types" :disabled="disabled" group="text-type" inline />
+      <RadiobuttonGroup v-model="textVariant" label="Variant" :options="componentText.variants" :disabled="disabled" group="text-variant" inline />
+      <Toggle v-model="textDisabled" label="Disabled" :disabled="disabled" />
+      <Toggle v-model="textReadonly" label="Readonly" :disabled="disabled" />
     </template>
   </ComponentShowcase>
 </template>

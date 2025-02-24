@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
 import Spinner from "@/components/loading/Spinner.vue";
+import { componentSpinner } from "@/data/components";
 
 // Controls
 import RadiobuttonGroup from "@/components/inputs/radiobutton/RadiobuttonGroup.vue";
 import Toggle from "@/components/inputs/checkbox/Toggle.vue";
-import { componentSpinner } from "@/data/components";
 
+// Control state
 const spinnerVariant = ref<"primary" | "secondary" | "success" | "danger" | "warning" | "info">("primary");
 const spinnerType = ref<"circle" | "bars" | "dots">("circle");
 const spinnerSize = ref<"xs" | "sm" | "md" | "lg" | "xl">("md");
 const spinnerContrast = ref<boolean>(false);
 
 const showcase = ref<InstanceType<typeof ComponentShowcase>>();
-const openPane = computed((): string => showcase.value?.openPane ?? "all");
 </script>
 
 <template>
@@ -82,11 +82,11 @@ const openPane = computed((): string => showcase.value?.openPane ?? "all");
       <Spinner :type="spinnerType" :variant="spinnerVariant" :size="spinnerSize" :contrast="spinnerContrast" />
     </template>
 
-    <template #controls>
-      <RadiobuttonGroup v-model="spinnerVariant" label="Variant" :options="componentSpinner.variants" :disabled="openPane !== 'single'" group="spinner-variant" inline />
-      <RadiobuttonGroup v-model="spinnerType" label="Type" :options="componentSpinner.types" :disabled="openPane !== 'single'" group="spinner-type" inline />
-      <RadiobuttonGroup v-model="spinnerSize" label="Size" :options="componentSpinner.sizes" :disabled="openPane !== 'single'" group="spinner-size" inline />
-      <Toggle v-model="spinnerContrast" label="Contrast" :disabled="openPane !== 'single'" />
+    <template #controls="{ disabled }">
+      <RadiobuttonGroup v-model="spinnerVariant" label="Variant" :options="componentSpinner.variants" :disabled="disabled" group="spinner-variant" inline />
+      <RadiobuttonGroup v-model="spinnerType" label="Type" :options="componentSpinner.types" :disabled="disabled" group="spinner-type" inline />
+      <RadiobuttonGroup v-model="spinnerSize" label="Size" :options="componentSpinner.sizes" :disabled="disabled" group="spinner-size" inline />
+      <Toggle v-model="spinnerContrast" label="Contrast" :disabled="disabled" />
     </template>
   </ComponentShowcase>
 </template>

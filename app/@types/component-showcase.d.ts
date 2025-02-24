@@ -7,7 +7,7 @@ export interface ComponentShowcaseProps {
 export interface ComponentShowcaseSlots {
   default?: {};
   description?: { description?: string };
-  controls?: {};
+  controls?: { disabled: boolean };
   single?: {};
   docs?: {};
   code?: {};

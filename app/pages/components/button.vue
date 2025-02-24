@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import Button from "@/components/button/Button.vue";
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
+import { componentButton } from "@/data/components";
 
 // Controls
 import RadiobuttonGroup from "@/components/inputs/radiobutton/RadiobuttonGroup.vue";
 import Text from "@/components/inputs/text/Text.vue";
 import Toggle from "@/components/inputs/checkbox/Toggle.vue";
-import { componentButton } from "@/data/components";
 
+// Control state
 const buttonLabel = ref<string>("Button");
 const buttonIcon = ref<string>("");
 const buttonVariant = ref<"neutral" | "primary" | "secondary" | "success" | "danger" | "warning" | "info">("neutral");
@@ -19,10 +20,6 @@ const buttonDisabled = ref<boolean>(false);
 const buttonFullWidth = ref<boolean>(false);
 
 const showcase = ref<InstanceType<typeof ComponentShowcase>>();
-const controlsDisabled = computed((): boolean => {
-  const pane = showcase.value?.openPane ?? "all";
-  return pane !== "single";
-});
 </script>
 
 <template>
@@ -97,18 +94,18 @@ const controlsDisabled = computed((): boolean => {
       />
     </template>
 
-    <template #controls>
-      <Text v-model="buttonLabel" label="Label" placeholder="Submit" :disabled="controlsDisabled" />
-      <Text v-model="buttonIcon" label="Icon" placeholder="add-line" :disabled="controlsDisabled" />
-      <RadiobuttonGroup v-model="buttonVariant" :options="componentButton.variants" :disabled="controlsDisabled" label="Variant" group="button-variant" inline />
-      <RadiobuttonGroup v-model="buttonType" :options="componentButton.types" :disabled="controlsDisabled" label="Type" group="button-type" inline />
-      <RadiobuttonGroup v-model="buttonSize" :options="componentButton.sizes" :disabled="controlsDisabled" label="Size" group="button-size" inline />
+    <template #controls="{ disabled }">
+      <Text v-model="buttonLabel" label="Label" placeholder="Submit" :disabled="disabled" />
+      <Text v-model="buttonIcon" label="Icon" placeholder="add-line" :disabled="disabled" />
+      <RadiobuttonGroup v-model="buttonVariant" :options="componentButton.variants" :disabled="disabled" label="Variant" group="button-variant" inline />
+      <RadiobuttonGroup v-model="buttonType" :options="componentButton.types" :disabled="disabled" label="Type" group="button-type" inline />
+      <RadiobuttonGroup v-model="buttonSize" :options="componentButton.sizes" :disabled="disabled" label="Size" group="button-size" inline />
       <div class="flex gap-x-2">
-        <Text v-model="buttonStartIcon" label="Start Icon" placeholder="mail-line" :disabled="controlsDisabled" class="flex-1" />
-        <Text v-model="buttonEndIcon" label="End Icon" placeholder="main-send-line" :disabled="controlsDisabled" class="flex-1" />
+        <Text v-model="buttonStartIcon" label="Start Icon" placeholder="mail-line" :disabled="disabled" class="flex-1" />
+        <Text v-model="buttonEndIcon" label="End Icon" placeholder="main-send-line" :disabled="disabled" class="flex-1" />
       </div>
-      <Toggle v-model="buttonDisabled" label="Disabled" :disabled="controlsDisabled" />
-      <Toggle v-model="buttonFullWidth" label="Full Width" :disabled="controlsDisabled" />
+      <Toggle v-model="buttonDisabled" label="Disabled" :disabled="disabled" />
+      <Toggle v-model="buttonFullWidth" label="Full Width" :disabled="disabled" />
     </template>
   </ComponentShowcase>
 </template>

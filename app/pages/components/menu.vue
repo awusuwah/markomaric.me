@@ -2,12 +2,11 @@
 import Button from "@/components/button/Button.vue";
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
 import Menu from "@/components/menu/Menu.vue";
+import { componentMenu } from "@/data/components";
 
 // Controls
 import RadiobuttonGroup from "@/components/inputs/radiobutton/RadiobuttonGroup.vue";
-import Toggle from "@/components/inputs/checkbox/Toggle.vue";
 import Text from "@/components/inputs/text/Text.vue";
-import { componentMenu } from "@/data/components";
 
 // Control state
 const menuPosition = ref<"top" | "bottom" | "left" | "right">("top");
@@ -16,10 +15,6 @@ const menuLabel = ref<string>("Menu");
 const menuIcon = ref<string>("menu-unfold-4-line");
 
 const showcase = ref<InstanceType<typeof ComponentShowcase>>();
-const controlsDisabled = computed((): boolean => {
-  const pane = showcase.value?.openPane ?? "all";
-  return pane !== "single";
-});
 </script>
 
 <template>
@@ -38,11 +33,11 @@ const controlsDisabled = computed((): boolean => {
       <Menu :position="menuPosition" :offset="parseInt(menuOffset)" :label="menuLabel" :icon="menuIcon">Some very new content</Menu>
     </template>
 
-    <template #controls>
-      <RadiobuttonGroup v-model="menuPosition" label="Position" :options="componentMenu.positions" :disabled="controlsDisabled" group="menu-position" inline />
-      <Text v-model="menuOffset" label="Offset" :disabled="controlsDisabled" />
-      <Text v-model="menuLabel" label="Label" :disabled="controlsDisabled" />
-      <Text v-model="menuIcon" label="Icon" :disabled="controlsDisabled" />
+    <template #controls="{ disabled }">
+      <RadiobuttonGroup v-model="menuPosition" label="Position" :options="componentMenu.positions" :disabled="disabled" group="menu-position" inline />
+      <Text v-model="menuOffset" label="Offset" :disabled="disabled" />
+      <Text v-model="menuLabel" label="Label" :disabled="disabled" />
+      <Text v-model="menuIcon" label="Icon" :disabled="disabled" />
     </template>
   </ComponentShowcase>
 </template>

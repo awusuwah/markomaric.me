@@ -1,23 +1,20 @@
 <script setup lang="ts">
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
 import Radiobutton from "@/components/inputs/radiobutton/Radiobutton.vue";
+import { componentRadiobutton } from "@/data/components";
 
 // Controls
 import RadiobuttonGroup from "@/components/inputs/radiobutton/RadiobuttonGroup.vue";
 import Text from "@/components/inputs/text/Text.vue";
 import Toggle from "@/components/inputs/checkbox/Toggle.vue";
-import { componentRadiobutton } from "@/data/components";
 
+// Control state
 const radioModel = ref<string>("radio3");
 const radioLabel = ref<string>("Radiobutton");
 const radioVariant = ref<"default" | "success" | "danger" | "warning" | "info">("default");
 const radioDisabled = ref<boolean>(false);
 
 const showcase = ref<InstanceType<typeof ComponentShowcase>>();
-const controlsDisabled = computed((): boolean => {
-  const pane = showcase.value?.openPane ?? "all";
-  return pane !== "single";
-});
 </script>
 
 <template>
@@ -51,10 +48,10 @@ const controlsDisabled = computed((): boolean => {
       <Radiobutton v-model="radioModel" :label="radioLabel" :variant="radioVariant" :disabled="radioDisabled" />
     </template>
 
-    <template #controls>
-      <Text v-model="radioLabel" label="Label" placeholder="Mister" :disabled="controlsDisabled" />
-      <RadiobuttonGroup v-model="radioVariant" label="Variant" :options="componentRadiobutton.variants" :disabled="controlsDisabled" group="radio-variant" inline />
-      <Toggle v-model="radioDisabled" label="Disabled" :disabled="controlsDisabled" />
+    <template #controls="{ disabled }">
+      <Text v-model="radioLabel" label="Label" placeholder="Mister" :disabled="disabled" />
+      <RadiobuttonGroup v-model="radioVariant" label="Variant" :options="componentRadiobutton.variants" :disabled="disabled" group="radio-variant" inline />
+      <Toggle v-model="radioDisabled" label="Disabled" :disabled="disabled" />
     </template>
   </ComponentShowcase>
 </template>

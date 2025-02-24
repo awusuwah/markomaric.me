@@ -1,23 +1,20 @@
 <script setup lang="ts">
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
 import Checkbox from "@/components/inputs/checkbox/Checkbox.vue";
+import { componentCheckbox } from "@/data/components";
 
 // Controls
 import RadiobuttonGroup from "@/components/inputs/radiobutton/RadiobuttonGroup.vue";
 import Text from "@/components/inputs/text/Text.vue";
 import Toggle from "@/components/inputs/checkbox/Toggle.vue";
-import { componentCheckbox } from "@/data/components";
 
+// Control state
 const checkboxModel = ref<boolean>(true);
 const checkboxLabel = ref<string>("Checkbox");
 const checkboxVariant = ref<"default" | "success" | "danger" | "warning" | "info">("default");
 const checkboxDisabled = ref<boolean>(false);
 
 const showcase = ref<InstanceType<typeof ComponentShowcase>>();
-const controlsDisabled = computed((): boolean => {
-  const pane = showcase.value?.openPane ?? "all";
-  return pane !== "single";
-});
 </script>
 
 <template>
@@ -51,10 +48,10 @@ const controlsDisabled = computed((): boolean => {
       <Checkbox v-model="checkboxModel" :label="checkboxLabel" :variant="checkboxVariant" :disabled="checkboxDisabled" />
     </template>
 
-    <template #controls>
-      <Text v-model="checkboxLabel" label="Label" placeholder="I agree to the terms and conditions" :disabled="controlsDisabled" />
-      <RadiobuttonGroup v-model="checkboxVariant" label="Variant" :options="componentCheckbox.variants" :disabled="controlsDisabled" group="checkbox-variant" inline />
-      <Toggle v-model="checkboxDisabled" label="Disabled" :disabled="controlsDisabled" />
+    <template #controls="{ disabled }">
+      <Text v-model="checkboxLabel" label="Label" placeholder="I agree to the terms and conditions" :disabled="disabled" />
+      <RadiobuttonGroup v-model="checkboxVariant" label="Variant" :options="componentCheckbox.variants" :disabled="disabled" group="checkbox-variant" inline />
+      <Toggle v-model="checkboxDisabled" label="Disabled" :disabled="disabled" />
     </template>
   </ComponentShowcase>
 </template>

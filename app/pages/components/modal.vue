@@ -2,11 +2,16 @@
 import Button from "@/components/button/Button.vue";
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
 import Modal from "@/components/modal/Modal.vue";
+import { componentModal } from "@/data/components";
 
 // Controls
 import RadiobuttonGroup from "@/components/inputs/radiobutton/RadiobuttonGroup.vue";
 import Text from "@/components/inputs/text/Text.vue";
-import { componentModal } from "@/data/components";
+
+// Control state
+const modalTitle = ref<string>("Modal Title");
+const modalVariant = ref<"default" | "success" | "danger" | "warning" | "info">("default");
+
 const modalDefault = ref<InstanceType<typeof Modal>>();
 const modalSuccess = ref<InstanceType<typeof Modal>>();
 const modalDanger = ref<InstanceType<typeof Modal>>();
@@ -14,14 +19,7 @@ const modalWarning = ref<InstanceType<typeof Modal>>();
 const modalInfo = ref<InstanceType<typeof Modal>>();
 const modalSingle = ref<InstanceType<typeof Modal>>();
 
-const modalTitle = ref<string>("Modal Title");
-const modalVariant = ref<"default" | "success" | "danger" | "warning" | "info">("default");
-
 const showcase = ref<InstanceType<typeof ComponentShowcase>>();
-const controlsDisabled = computed((): boolean => {
-  const pane = showcase.value?.openPane ?? "all";
-  return pane !== "single";
-});
 </script>
 
 <template>
@@ -85,9 +83,9 @@ const controlsDisabled = computed((): boolean => {
       </Modal>
     </template>
 
-    <template #controls>
-      <Text v-model="modalTitle" label="Title" :disabled="controlsDisabled" />
-      <RadiobuttonGroup v-model="modalVariant" label="Variant" :options="componentModal.variants" :disabled="controlsDisabled" group="modal-variant" inline />
+    <template #controls="{ disabled }">
+      <Text v-model="modalTitle" label="Title" :disabled="disabled" />
+      <RadiobuttonGroup v-model="modalVariant" label="Variant" :options="componentModal.variants" :disabled="disabled" group="modal-variant" inline />
     </template>
   </ComponentShowcase>
 </template>

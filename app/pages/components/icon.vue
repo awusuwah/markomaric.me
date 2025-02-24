@@ -1,20 +1,17 @@
 <script setup lang="ts">
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
 import Icon from "@/components/icon/Icon.vue";
+import { componentIcon } from "@/data/components";
 
 // Controls
 import RadiobuttonGroup from "@/components/inputs/radiobutton/RadiobuttonGroup.vue";
 import Text from "@/components/inputs/text/Text.vue";
-import { componentIcon } from "@/data/components";
 
+// Control state
 const iconIcon = ref<string>("firefox-browser-line");
 const iconSize = ref<"xs" | "sm" | "md" | "lg" | "xl">("xl");
 
 const showcase = ref<InstanceType<typeof ComponentShowcase>>();
-const controlsDisabled = computed((): boolean => {
-  const pane = showcase.value?.openPane ?? "all";
-  return pane !== "single";
-});
 </script>
 
 <template>
@@ -31,9 +28,9 @@ const controlsDisabled = computed((): boolean => {
       <Icon :icon="iconIcon" :size="iconSize" />
     </template>
 
-    <template #controls>
-      <Text v-model="iconIcon" label="Icon" placeholder="firefox-browser-line" :disabled="controlsDisabled" />
-      <RadiobuttonGroup v-model="iconSize" label="Size" :options="componentIcon.sizes" :disabled="controlsDisabled" group="icon-size" inline />
+    <template #controls="{ disabled }">
+      <Text v-model="iconIcon" label="Icon" placeholder="firefox-browser-line" :disabled="disabled" />
+      <RadiobuttonGroup v-model="iconSize" label="Size" :options="componentIcon.sizes" :disabled="disabled" group="icon-size" inline />
     </template>
   </ComponentShowcase>
 </template>

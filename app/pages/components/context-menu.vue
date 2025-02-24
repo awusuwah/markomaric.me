@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
 import ContextMenu from "@/components/contextMenu/ContextMenu.vue";
+import { componentContextMenu } from "@/data/components";
 
 // Controls
 import RadiobuttonGroup from "@/components/inputs/radiobutton/RadiobuttonGroup.vue";
 import Text from "@/components/inputs/text/Text.vue";
-import { componentContextMenu } from "@/data/components";
 
 // Control state
 const contextMenuPosition = ref<"top" | "bottom" | "left" | "right">("top");
@@ -14,10 +14,6 @@ const contextMenuLabel = ref<string>("Context Menu");
 const contextMenuIcon = ref<string>("menu-unfold-4-line");
 
 const showcase = ref<InstanceType<typeof ComponentShowcase>>();
-const controlsDisabled = computed((): boolean => {
-  const pane = showcase.value?.openPane ?? "all";
-  return pane !== "single";
-});
 
 /**
  * Handle when a menu item is selected.
@@ -56,12 +52,12 @@ const selected = (id: string): void => {
       <ContextMenu :options="componentContextMenu.options" :position="contextMenuPosition" :offset="parseInt(contextMenuOffset)" :label="contextMenuLabel" :icon="contextMenuIcon" />
     </template>
 
-    <template #controls>
-      <RadiobuttonGroup v-model="contextMenuPosition" label="Position" :options="componentContextMenu.positions" :disabled="controlsDisabled" group="context-menu-position" inline />
-      <Text v-model="contextMenuOffset" label="Offset" :disabled="controlsDisabled" />
+    <template #controls="{ disabled }">
+      <RadiobuttonGroup v-model="contextMenuPosition" label="Position" :options="componentContextMenu.positions" :disabled="disabled" group="context-menu-position" inline />
+      <Text v-model="contextMenuOffset" label="Offset" :disabled="disabled" />
       <div class="flex flex-row gap-x-2">
-        <Text v-model="contextMenuLabel" label="Label" :disabled="controlsDisabled" class="flex-1" />
-        <Text v-model="contextMenuIcon" label="Icon" :disabled="controlsDisabled" class="flex-1" />
+        <Text v-model="contextMenuLabel" label="Label" :disabled="disabled" class="flex-1" />
+        <Text v-model="contextMenuIcon" label="Icon" :disabled="disabled" class="flex-1" />
       </div>
     </template>
   </ComponentShowcase>
