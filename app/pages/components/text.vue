@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ComponentShowcase from "@/components/componentShowcase/ComponentShowcase.vue";
 import Text from "@/components/inputs/text/Text.vue";
+import NewText from "@/components/inputs/text/NewText.vue";
 import { componentText } from "@/data/components";
 
 // Controls
@@ -24,42 +25,42 @@ const showcase = ref<InstanceType<typeof ComponentShowcase>>();
 <template>
   <ComponentShowcase ref="showcase" title="Text" description="Text is used to display text in the application." component="text">
     <section class="flex gap-x-4">
-      <Text v-model="textModel" label="Default" />
-      <Text v-model="textModel" label="Default" start-icon="fire-line" end-icon="fire-line" />
-      <Text v-model="textModel" label="Default" disabled />
-      <Text v-model="textModel" label="Default" disabled start-icon="fire-line" end-icon="fire-line" />
+      <NewText v-model="textModel" label="Default" />
+      <NewText v-model="textModel" label="Default" start-icon="fire-line" end-icon="arrow-down-s-line" />
+      <NewText v-model="textModel" label="Default" disabled />
+      <NewText v-model="textModel" label="Default" disabled start-icon="fire-line" end-icon="arrow-down-s-line" />
     </section>
 
     <section class="flex gap-x-4">
-      <Text v-model="textModel" label="Success" variant="success" />
-      <Text v-model="textModel" label="Success" variant="success" start-icon="fire-line" end-icon="fire-line" />
-      <Text v-model="textModel" label="Success" variant="success" disabled />
-      <Text v-model="textModel" label="Success" variant="success" disabled start-icon="fire-line" end-icon="fire-line" />
+      <NewText v-model="textModel" label="Success" variant="success" />
+      <NewText v-model="textModel" label="Success" variant="success" start-icon="fire-line" end-icon="arrow-down-s-line" />
+      <NewText v-model="textModel" label="Success" variant="success" disabled />
+      <NewText v-model="textModel" label="Success" variant="success" disabled start-icon="fire-line" end-icon="arrow-down-s-line" />
     </section>
 
     <section class="flex gap-x-4">
-      <Text v-model="textModel" label="Danger" variant="danger" />
-      <Text v-model="textModel" label="Danger" variant="danger" start-icon="fire-line" end-icon="fire-line" />
-      <Text v-model="textModel" label="Danger" variant="danger" disabled />
-      <Text v-model="textModel" label="Danger" variant="danger" disabled start-icon="fire-line" end-icon="fire-line" />
+      <NewText v-model="textModel" label="Danger" variant="danger" />
+      <NewText v-model="textModel" label="Danger" variant="danger" start-icon="fire-line" end-icon="arrow-down-s-line" />
+      <NewText v-model="textModel" label="Danger" variant="danger" disabled />
+      <NewText v-model="textModel" label="Danger" variant="danger" disabled start-icon="fire-line" end-icon="arrow-down-s-line" />
     </section>
 
     <section class="flex gap-x-4">
-      <Text v-model="textModel" label="Warning" variant="warning" />
-      <Text v-model="textModel" label="Warning" variant="warning" start-icon="fire-line" end-icon="fire-line" />
-      <Text v-model="textModel" label="Warning" variant="warning" disabled />
-      <Text v-model="textModel" label="Warning" variant="warning" disabled start-icon="fire-line" end-icon="fire-line" />
+      <NewText v-model="textModel" label="Warning" variant="warning" />
+      <NewText v-model="textModel" label="Warning" variant="warning" start-icon="fire-line" end-icon="arrow-down-s-line" />
+      <NewText v-model="textModel" label="Warning" variant="warning" disabled />
+      <NewText v-model="textModel" label="Warning" variant="warning" disabled start-icon="fire-line" end-icon="arrow-down-s-line" />
     </section>
 
     <section class="flex gap-x-4">
-      <Text v-model="textModel" label="Info" variant="info" />
-      <Text v-model="textModel" label="Info" variant="info" start-icon="fire-line" end-icon="fire-line" />
-      <Text v-model="textModel" label="Info" variant="info" disabled />
-      <Text v-model="textModel" label="Info" variant="info" disabled start-icon="fire-line" end-icon="fire-line" />
+      <NewText v-model="textModel" label="Info" variant="info" />
+      <NewText v-model="textModel" label="Info" variant="info" start-icon="fire-line" end-icon="arrow-down-s-line" />
+      <NewText v-model="textModel" label="Info" variant="info" disabled />
+      <NewText v-model="textModel" label="Info" variant="info" disabled start-icon="fire-line" end-icon="arrow-down-s-line" />
     </section>
 
     <template #single>
-      <Text
+      <NewText
         v-model="textModel"
         :label="textLabel"
         :placeholder="textPlaceholder"
