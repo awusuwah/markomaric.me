@@ -77,7 +77,7 @@ defineExpose({
     </Card>
 
     <Card title="Controls">
-      <div class="flex flex-col gap-y-2">
+      <div class="mt-4 flex flex-col gap-y-4">
         <slot name="controls" :disabled="openPane !== 'single'" />
       </div>
     </Card>

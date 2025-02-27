@@ -3,7 +3,7 @@ import Button from "@/components/button/Button.vue";
 import type { MenuProps } from "@/@types/menu";
 
 const props = withDefaults(defineProps<MenuProps>(), {
-  position: "top",
+  position: "top-start",
   offset: 8,
   icon: undefined,
   label: undefined,
@@ -32,31 +32,91 @@ const menuClasses = computed((): Record<string, boolean> => {
 const menuPositionStyles = computed((): Record<string, string> => {
   switch (props.position) {
     case "top":
+    case "top-start":
       return {
         bottom: "anchor(top)",
         left: "anchor(left)",
         "margin-block-end": `${props.offset}px`,
       };
 
+    case "top-end":
+      return {
+        bottom: "anchor(top)",
+        right: "anchor(right)",
+        "margin-block-end": `${props.offset}px`,
+      };
+
+    case "top-center":
+      return {
+        bottom: "anchor(top)",
+        "margin-block-end": `${props.offset}px`,
+        "justify-self": "anchor-center",
+      };
+
     case "bottom":
+    case "bottom-start":
       return {
         top: "anchor(bottom)",
         left: "anchor(left)",
         "margin-block-start": `${props.offset}px`,
       };
 
-    case "left":
+    case "bottom-end":
       return {
-        top: "anchor(top)",
+        top: "anchor(bottom)",
+        right: "anchor(right)",
+        "margin-block-start": `${props.offset}px`,
+      };
+
+    case "bottom-center":
+      return {
+        top: "anchor(bottom)",
+        "margin-block-start": `${props.offset}px`,
+        "justify-self": "anchor-center",
+      };
+
+    case "left":
+    case "left-start":
+      return {
         right: "anchor(left)",
+        top: "anchor(top)",
         "margin-inline-end": `${props.offset}px`,
       };
 
-    case "right":
+    case "left-end":
       return {
+        right: "anchor(left)",
+        bottom: "anchor(bottom)",
+        "margin-inline-end": `${props.offset}px`,
+      };
+
+    case "left-center":
+      return {
+        right: "anchor(left)",
+        "margin-inline-end": `${props.offset}px`,
+        "align-self": "anchor-center",
+      };
+
+    case "right":
+    case "right-start":
+      return {
+        left: "anchor(right)",
         top: "anchor(top)",
+        "margin-inline-start": `${props.offset}px`,
+      };
+
+    case "right-end":
+      return {
+        left: "anchor(right)",
+        bottom: "anchor(bottom)",
+        "margin-inline-start": `${props.offset}px`,
+      };
+
+    case "right-center":
+      return {
         left: "anchor(right)",
         "margin-inline-start": `${props.offset}px`,
+        "align-self": "anchor-center",
       };
   }
 });

@@ -30,7 +30,15 @@ const showcase = ref<InstanceType<typeof ComponentShowcase>>();
     </section>
 
     <template #single>
-      <Menu :position="menuPosition" :offset="parseInt(menuOffset)" :label="menuLabel" :icon="menuIcon">Some very new content</Menu>
+      <Menu :position="menuPosition" :offset="parseInt(menuOffset)" :label="menuLabel" :icon="menuIcon">
+        <ul class="flex flex-col gap-y-1">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+          <li>Item 4</li>
+          <li>Item 5</li>
+        </ul>
+      </Menu>
     </template>
 
     <template #controls="{ disabled }">

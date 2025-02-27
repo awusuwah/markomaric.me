@@ -1,5 +1,21 @@
 export interface MenuProps {
-  position?: "top" | "bottom" | "left" | "right";
+  position?:
+    | "top"
+    | "top-start"
+    | "top-center"
+    | "top-end"
+    | "bottom"
+    | "bottom-start"
+    | "bottom-center"
+    | "bottom-end"
+    | "left"
+    | "left-start"
+    | "left-center"
+    | "left-end"
+    | "right"
+    | "right-start"
+    | "right-center"
+    | "right-end";
   offset?: number;
   icon?: string;
   label?: string;

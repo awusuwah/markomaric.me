@@ -57,9 +57,21 @@ export const componentIcon = {
 export const componentMenu = {
   positions: [
     { label: "Top", value: "top" },
+    { label: "Top Start", value: "top-start" },
+    { label: "Top Center", value: "top-center" },
+    { label: "Top End", value: "top-end" },
     { label: "Bottom", value: "bottom" },
+    { label: "Bottom Start", value: "bottom-start" },
+    { label: "Bottom Center", value: "bottom-center" },
+    { label: "Bottom End", value: "bottom-end" },
     { label: "Left", value: "left" },
+    { label: "Left Start", value: "left-start" },
+    { label: "Left Center", value: "left-center" },
+    { label: "Left End", value: "left-end" },
     { label: "Right", value: "right" },
+    { label: "Right Start", value: "right-start" },
+    { label: "Right Center", value: "right-center" },
+    { label: "Right End", value: "right-end" },
   ],
 };
 

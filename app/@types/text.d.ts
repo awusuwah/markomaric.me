@@ -1,7 +1,6 @@
 export interface TextProps {
   modelValue: string;
-  label?: string;
-  placeholder?: string;
+  label: string;
   type?: "text" | "email" | "password" | "number";
   variant?: "default" | "success" | "danger" | "warning" | "info";
   startIcon?: string;
@@ -11,18 +10,11 @@ export interface TextProps {
 }
 
 export interface TextEmits {
-  "update:modelValue": [string];
-  blur: [Event];
-  focus: [Event];
-  keydown: [Event];
-  keyup: [Event];
-  keypress: [Event];
-  change: [Event];
-  paste: [Event];
+  (e: "update:modelValue", value: string): void;
 }
 
 export interface TextSlots {
+  label?: { label?: string };
   start?: { icon?: string };
   end?: { icon?: string };
-  label?: { label?: string };
 }
