@@ -19,6 +19,7 @@ export interface MenuProps {
   offset?: number;
   icon?: string;
   label?: string;
+  width?: "auto" | "trigger";
 }
 
 export interface MenuSlots {

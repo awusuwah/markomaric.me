@@ -11,6 +11,7 @@ const props = withDefaults(defineProps<MenuProps>(), {
 });
 
 const menuRef = ref<HTMLDivElement>();
+const triggerRef = ref<InstanceType<typeof Button>>();
 
 /**
  * Generate a unique ID for this menu instance
@@ -22,7 +23,9 @@ const menuKey = ref(`menu-${Math.random().toString(36).substring(2, 11)}`);
  */
 const menuClasses = computed((): Record<string, boolean> => {
   return {
-    "menu absolute inset-auto m-0 overflow-visible bg-transparent opacity-0 open:opacity-100": true,
+    "menu fixed inset-auto m-0 overflow-visible bg-transparent opacity-0 open:opacity-100": true,
+    // "min-w-auto": props.width === "auto",
+    "w-[500px]": props.width === "trigger",
   };
 });
 
@@ -144,7 +147,7 @@ defineExpose({
 <template>
   <div>
     <slot name="trigger" :icon="icon" classes="trigger" :popovertarget="menuKey">
-      <Button :icon="icon" :label="label" class="trigger" :popovertarget="menuKey" />
+      <Button ref="triggerRef" :icon="icon" :label="label" class="trigger" :popovertarget="menuKey" />
     </slot>
 
     <div ref="menuRef" :id="menuKey" :class="menuClasses" :style="menuPositionStyles" role="menu" popover>

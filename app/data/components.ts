@@ -44,6 +44,24 @@ export const componentContextMenu = {
   ],
 };
 
+export const componentDropdown = {
+  options: [
+    { label: "Switzerland", value: "CH", icon: "flag-ch" },
+    { label: "Germany", value: "DE", icon: "flag-de" },
+    { label: "France", value: "FR", icon: "flag-fr" },
+    { label: "Italy", value: "IT", icon: "flag-it" },
+    { label: "Spain", value: "ES", icon: "flag-es" },
+    { label: "Portugal", value: "PT", icon: "flag-pt" },
+    { label: "Greece", value: "GR", icon: "flag-gr" },
+    { label: "Croatia", value: "HR", icon: "flag-hr" },
+    { label: "Austria", value: "AT", icon: "flag-at" },
+    { label: "Belgium", value: "BE", icon: "flag-be" },
+    { label: "Bulgaria", value: "BG", icon: "flag-bg" },
+    { label: "Cyprus", value: "CY", icon: "flag-cy" },
+    { label: "Czechia", value: "CZ", icon: "flag-cz" },
+  ],
+};
+
 export const componentIcon = {
   sizes: [
     { label: "XSmall", value: "xs" },
