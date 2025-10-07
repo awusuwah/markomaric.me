@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Card from "@/components/Card.vue";
 import Icon from "@/components/Icon.vue";
+import TicketViewer from "@/components/TicketViewer.vue";
 
 import { bookmarks, frontends } from "@/data/work";
 </script>
@@ -37,6 +38,8 @@ import { bookmarks, frontends } from "@/data/work";
           </a>
         </div>
       </Card>
+
+      <TicketViewer />
     </div>
   </section>
 

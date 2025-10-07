@@ -1,0 +1,17 @@
+{
+  "name": "Marko - Jira Issue Sync",
+  "description": "Sync Jira issues to the Marko platform",
+  "version": "1.0.1",
+  "manifest_version": 3,
+
+  "permissions": ["storage"],
+  "host_permissions": ["https://jira.migros.net/*"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://jira.migros.net/*", "https://markomaric.me/*", "http://localhost:3000/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
